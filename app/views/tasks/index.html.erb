@@ -1,0 +1,23 @@
+<div class="container tasks-card">
+
+  <% @tasks.each_with_index do |t, i| %>
+
+    <h4> <%= i+1 %> - <%= link_to  t.title, task_path(t) %>
+
+      <% if t.completed == true %>
+        ✅
+      <% else %>
+        ❎
+      <% end %>
+
+      <%= link_to '✏️', edit_task_path(t) %>
+
+      <%= link_to '🗑', task_path(t), method: :delete, data: { confirm: 'Are you sure?' }  %>
+
+    </h2>
+
+
+  <% end %>
+
+</div>
+
